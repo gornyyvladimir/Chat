@@ -1,0 +1,24 @@
+.messageWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.avatarWrapper {
+  margin-right: 14px;
+}
+
+.message {
+  margin: 0;
+  padding: 1em;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.05);
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.name {
+  font-weight: 500;
+}

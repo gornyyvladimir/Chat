@@ -1,6 +1,8 @@
 .wrapper {
   padding-top: 62px;
   padding-bottom: 48px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .title {

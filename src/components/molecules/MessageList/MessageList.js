@@ -3,13 +3,15 @@ import Message from '../../atoms/Message/Message';
 import styles from '../MessageList/MessageList.module.css';
 const MessageList = ({ messages, user }) => {
   return (
-    <ul className={styles.messageList}>
-      {messages.map(message => (
-        <li key={message.id}>
-          <Message message={message} />
-        </li>
-      ))}
-    </ul>
+    <div className={styles.wrapper}>
+      <ul className={styles.messageList}>
+        {messages.map(message => (
+          <li key={message.id}>
+            <Message message={message} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

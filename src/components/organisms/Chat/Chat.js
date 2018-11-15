@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import MessageForm from '../../molecules/MessageForm/MessageForm';
 import MessageList from '../../molecules/MessageList/MessageList';
 import styles from './Chat.module.css';
 import currentUser from '../../../dummyUser';
+import { sendMessage } from '../../../store/messages/actions';
 
 class Chat extends Component {
-  state = {
-    messages: [],
-  };
-
   sendMessage = (message, user) => {
     const messageObj = {
-      id: this.state.messages.length + 1,
+      id: this.props.messages.length + 1,
       sender: user,
       text: message,
       date: new Date(),
     };
-    console.log(messageObj);
-    this.setState({
-      messages: [messageObj, ...this.state.messages],
-    });
+    this.props.onSendMessage(messageObj);
   };
 
   render() {
@@ -28,10 +23,21 @@ class Chat extends Component {
         <MessageForm
           sendMessage={message => this.sendMessage(message, currentUser)}
         />
-        <MessageList messages={this.state.messages} />
+        <MessageList messages={this.props.messages} />
       </div>
     );
   }
 }
 
-export default Chat;
+const mapStateToProps = state => ({
+  messages: state.messages.messages,
+});
+
+const mapDispatchToProps = {
+  onSendMessage: message => sendMessage(message),
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Chat);

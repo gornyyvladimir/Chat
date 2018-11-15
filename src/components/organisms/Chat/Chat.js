@@ -24,8 +24,7 @@ class Chat extends Component {
 
   render() {
     return (
-      <div className={styles.wrapper}>
-        <h1>Чат</h1>
+      <div>
         <MessageForm
           sendMessage={message => this.sendMessage(message, currentUser)}
         />

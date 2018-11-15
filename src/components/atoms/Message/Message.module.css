@@ -1,11 +1,11 @@
 .messageWrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 2em;
 }
 
 .avatarWrapper {
-  margin-right: 14px;
+  margin-right: 1em;
 }
 
 .message {
@@ -15,10 +15,12 @@
   border-radius: 5px;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.05);
   font-weight: normal;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 1em;
+  line-height: 1.4;
+  color: #878787;
 }
 
 .name {
   font-weight: 500;
+  color: #333333;
 }

@@ -7,9 +7,11 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import messagesReducer from './store/messages/reducer';
+import usersReducer from './store/users/reducer';
 
 const rootReducer = combineReducers({
   messages: messagesReducer,
+  users: usersReducer,
 });
 
 const store = createStore(

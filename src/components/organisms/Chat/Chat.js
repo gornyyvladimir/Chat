@@ -5,24 +5,22 @@ import MessageForm from '../../molecules/MessageForm/MessageForm';
 import MessageList from '../../molecules/MessageList/MessageList';
 import styles from './Chat.module.css';
 import { sendMessage, addMessage } from '../../../store/messages/actions';
+import { setCurrentUser } from '../../../store/users/actions';
 
 class Chat extends Component {
   componentDidMount() {
-    console.log(window.location);
     const chatManager = new ChatManager({
       instanceLocator: process.env.REACT_APP_INSTANCE_LOCATOR,
-      userId:
-        window.location.pathname === '/client' ? 'client' : 'manager',
+      userId: window.location.pathname === '/client' ? 'client' : 'manager',
       tokenProvider: new TokenProvider({
         url: process.env.REACT_APP_TEST_TOKEN_PROVIDER,
       }),
     });
 
     chatManager.connect().then(currentUser => {
-      this.currentUser = currentUser;
-      console.log(currentUser);
+      this.props.onSetCurrentUser(currentUser);
       currentUser.subscribeToRoom({
-        roomId: '19376071',
+        roomId: process.env.REACT_APP_ROOM_ID,
         hooks: {
           onMessage: message => {
             this.props.onAddMessage(message);
@@ -33,15 +31,15 @@ class Chat extends Component {
   }
 
   sendMessage = text => {
-    this.currentUser.sendMessage({
+    this.props.currentUser.sendMessage({
       text,
-      roomId: '19376071',
+      roomId: process.env.REACT_APP_ROOM_ID,
     });
   };
 
   render() {
     return (
-      <div>
+      <div className={styles.wrapper}>
         <MessageForm sendMessage={this.sendMessage} />
         <MessageList messages={this.props.messages} />
       </div>
@@ -51,11 +49,13 @@ class Chat extends Component {
 
 const mapStateToProps = state => ({
   messages: state.messages.messages,
+  currentUser: state.users.currentUser,
 });
 
 const mapDispatchToProps = {
   onSendMessage: message => sendMessage(message),
   onAddMessage: message => addMessage(message),
+  onSetCurrentUser: user => setCurrentUser(user),
 };
 
 export default connect(

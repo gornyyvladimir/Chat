@@ -3,11 +3,7 @@ import ChatLayout from '../../templates/ChatLayout/ChatLayout';
 import Chat from '../../organisms/Chat/Chat';
 
 const MainPage = props => {
-  return (
-    <ChatLayout>
-      <Chat />
-    </ChatLayout>
-  );
+  return <Chat />;
 };
 
 export default MainPage;

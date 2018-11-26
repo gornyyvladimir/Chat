@@ -1,15 +1,16 @@
 import React from 'react';
 import Avatar from '../Avatar/Avatar';
 import styles from './Message.module.css';
+import avatar from './avatar.jpg';
 
 const Message = ({ message }) => {
   return (
     <div className={styles.messageWrapper}>
       <div className={styles.avatarWrapper}>
-        <Avatar image={message.sender.avatar} />
+        <Avatar image={avatar} />
       </div>
       <p className={styles.message}>
-        <strong className={styles.name}>{`${message.sender.name}: `}</strong>
+        <strong className={styles.name}>{`${message.senderId}: `}</strong>
         {message.text}
       </p>
     </div>

@@ -1,6 +1,13 @@
 .wrapper {
+  position: relative;
+  padding-left: 100px;
+  padding-right: 100px;
   padding-top: 62px;
   padding-bottom: 48px;
+}
+
+.shadow {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
 }
 
 .title {

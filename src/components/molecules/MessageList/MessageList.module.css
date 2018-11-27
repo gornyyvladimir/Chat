@@ -1,5 +1,6 @@
 .wrapper {
-  margin-right: -60px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .messageList {
@@ -8,7 +9,8 @@
   padding: 0;
   max-height: 60vh;
   overflow-y: auto;
-  padding-right: 46px;
+  margin-right: -60px;
+  padding-right: 45px;
 }
 
 .messageList::-webkit-scrollbar-track

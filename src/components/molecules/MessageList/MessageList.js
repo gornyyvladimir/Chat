@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import Message from '../../atoms/Message/Message';
 import styles from '../MessageList/MessageList.module.css';
 
-const MessageList = ({ messages, currentUser }) => {
+const MessageList = ({ messages, currentUser, handleScroll }) => {
   return (
     <div className={styles.wrapper}>
-      <ul className={styles.messageList}>
+      <ul className={styles.messageList} onScroll={handleScroll}>
         {messages.map(message => (
           <li key={message.id}>
             <Message isCurrentUserMessage={currentUser.id === message.senderId} message={message} />

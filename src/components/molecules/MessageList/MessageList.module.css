@@ -13,20 +13,3 @@
   margin-right: -70px;
   padding-right: 60px;
 }
-
-.messageList::-webkit-scrollbar-track
-{
-	border-radius: 10px;
-	background-color: #e4e4e4;
-}
-
-.messageList::-webkit-scrollbar
-{
-  width: 9px;
-}
-
-.messageList::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	background-color: #52aff1;
-}

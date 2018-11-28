@@ -25,11 +25,8 @@ class MessageForm extends Component {
   };
 
   render() {
-
-    const classes = this.props.isScrolled ? `${styles.wrapper} ${styles.shadow}` : styles.wrapper;
-
     return (
-      <div className={classes}>
+      <div className={styles.wrapper}>
         <h1 className={styles.title}>Чат</h1>
         <form
           className={styles.form}

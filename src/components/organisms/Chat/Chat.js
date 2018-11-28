@@ -8,10 +8,6 @@ import { sendMessage, addMessage } from '../../../store/messages/actions';
 import { setCurrentUser } from '../../../store/users/actions';
 
 class Chat extends Component {
-  state = {
-    isScrolled: false,
-  };
-
   componentDidMount() {
     const chatManager = new ChatManager({
       instanceLocator: process.env.REACT_APP_INSTANCE_LOCATOR,
@@ -41,24 +37,14 @@ class Chat extends Component {
     });
   };
 
-  handleScroll = event => {
-    if (event.target.scrollTop > 0) {
-      this.setState({ isScrolled: true });
-    } else {
-      this.setState({ isScrolled: false });
-    }
-  };
-
   render() {
     return (
       <div className={styles.wrapper}>
         <MessageForm
           sendMessage={this.sendMessage}
-          isScrolled={this.state.isScrolled}
         />
         <MessageList
           messages={this.props.messages}
-          handleScroll={this.handleScroll}
         />
       </div>
     );

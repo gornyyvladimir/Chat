@@ -1,16 +1,17 @@
 .wrapper {
-  padding-left: 100px;
-  padding-right: 100px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
 }
 
 .messageList {
+  flex-grow: 1;
   list-style: none;
   margin: 0;
   padding: 0;
-  max-height: 60vh;
   overflow-y: auto;
-  margin-right: -60px;
-  padding-right: 45px;
+  margin-right: -70px;
+  padding-right: 60px;
 }
 
 .messageList::-webkit-scrollbar-track

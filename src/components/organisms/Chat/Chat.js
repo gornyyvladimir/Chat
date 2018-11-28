@@ -40,8 +40,12 @@ class Chat extends Component {
   render() {
     return (
       <div className={styles.wrapper}>
-        <MessageForm sendMessage={this.sendMessage} />
-        <MessageList messages={this.props.messages} />
+        <MessageForm
+          sendMessage={this.sendMessage}
+        />
+        <MessageList
+          messages={this.props.messages}
+        />
       </div>
     );
   }

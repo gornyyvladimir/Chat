@@ -1,6 +1,12 @@
 .wrapper {
+  position: relative;
   padding-top: 62px;
   padding-bottom: 48px;
+  flex: none;
+}
+
+.shadow {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
 }
 
 .title {

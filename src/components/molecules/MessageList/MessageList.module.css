@@ -13,3 +13,8 @@
   margin-right: -70px;
   padding-right: 60px;
 }
+
+.messageList::-webkit-scrollbar-track
+{
+  margin-top: 50px;
+}

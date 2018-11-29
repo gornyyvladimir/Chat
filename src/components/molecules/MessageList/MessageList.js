@@ -25,8 +25,8 @@ class MessageList extends Component {
       <div className={styles.wrapper}>
         <ul className={styles.messageList}>
           {messages.map((message, index) => {
-            const nextDate = messages[index + 1] ? messages[index + 1].createdAt : null;
-            const isAfter = moment(message.createdAt).isAfter(nextDate, 'day');
+            const prevDate = messages[index + 1] ? messages[index + 1].createdAt : moment();
+            const isAfter = moment(message.createdAt).isAfter(prevDate, 'day');
             return (
               <li key={message.id}>
                 {isAfter && <DateDivider date={moment(message.createdAt).format("DD.MM.YYYY")} />}

@@ -25,7 +25,7 @@ const BankAccount = () => {
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"
           lastOperationDiff="- 69"
-          currencySymbol="$"
+          currencyType="USD"
           className={styles.greyCard}
         />
         <Card
@@ -35,7 +35,7 @@ const BankAccount = () => {
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"
           lastOperationDiff="- 69"
-          currencySymbol="$"
+          currencyType="USD"
         />
         <Card
           accountNumber="57890457"
@@ -44,7 +44,7 @@ const BankAccount = () => {
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"
           lastOperationDiff="- 69"
-          currencySymbol="$"
+          currencyType="EUR"
           className={styles.greyCard}
         />
       </div>

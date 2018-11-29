@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import Message from '../../atoms/Message/Message';
 import styles from '../MessageList/MessageList.module.css';
 
@@ -18,18 +19,23 @@ class MessageList extends Component {
 
   render() {
     const { messages, currentUser } = this.props;
-    console.log(this.state.isScrolled);
+    console.log('render');
     return (
       <div className={styles.wrapper}>
         <ul className={styles.messageList}>
-          {messages.map(message => (
-            <li key={message.id}>
-              <Message
-                isCurrentUserMessage={currentUser.id === message.senderId}
-                message={message}
-              />
-            </li>
-          ))}
+          {messages.map((message, index) => {
+            const nextDate = messages[index + 1] ? messages[index + 1].createdAt : null;
+            const isAfter = moment(message.createdAt).isAfter(nextDate, 'day');
+            return (
+              <li key={message.id}>
+                {isAfter && <p>{message.createdAt}</p>}
+                <Message
+                  isCurrentUserMessage={currentUser.id === message.senderId}
+                  message={message}
+                />
+              </li>
+            );
+          })}
         </ul>
       </div>
     );

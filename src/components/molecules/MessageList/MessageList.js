@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import Message from '../../atoms/Message/Message';
 import styles from '../MessageList/MessageList.module.css';
+import DateDivider from '../../atoms/DateDivider/DateDivider';
 
 class MessageList extends Component {
   state = {
@@ -28,7 +29,7 @@ class MessageList extends Component {
             const isAfter = moment(message.createdAt).isAfter(nextDate, 'day');
             return (
               <li key={message.id}>
-                {isAfter && <p>{message.createdAt}</p>}
+                {isAfter && <DateDivider date={moment(message.createdAt).format("DD.MM.YYYY")} />}
                 <Message
                   isCurrentUserMessage={currentUser.id === message.senderId}
                   message={message}

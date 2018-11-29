@@ -16,7 +16,7 @@ const BankAccount = () => {
           percent="8"
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"
-          lastOperationDiff="+ 3 500"
+          lastOperationDiff={3500}
         />
         <Card
           accountNumber="57890457"
@@ -24,7 +24,7 @@ const BankAccount = () => {
           percent="2"
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"
-          lastOperationDiff="- 69"
+          lastOperationDiff={-69}
           currencyType="USD"
           className={styles.greyCard}
         />
@@ -34,7 +34,7 @@ const BankAccount = () => {
           percent="2"
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"
-          lastOperationDiff="- 69"
+          lastOperationDiff={-8000}
           currencyType="USD"
         />
         <Card
@@ -43,7 +43,7 @@ const BankAccount = () => {
           percent="2"
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"
-          lastOperationDiff="- 69"
+          lastOperationDiff={40000}
           currencyType="EUR"
           className={styles.greyCard}
         />

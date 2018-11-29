@@ -41,3 +41,11 @@
 .text {
   line-height: 20px;
 }
+
+.operation {
+  color: #de1c28;
+}
+
+.positive {
+  color: #6ece1a;
+}

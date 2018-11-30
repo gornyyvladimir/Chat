@@ -29,11 +29,11 @@ class MessageList extends Component {
             const isAfter = moment(message.createdAt).isAfter(prevDate, 'day');
             return (
               <li key={message.id}>
-                {isAfter && <DateDivider date={moment(message.createdAt).format("DD.MM.YYYY")} />}
                 <Message
                   isCurrentUserMessage={currentUser.id === message.senderId}
                   message={message}
                 />
+                {isAfter && <DateDivider date={moment(prevDate).format("DD.MM.YYYY")} />}
               </li>
             );
           })}

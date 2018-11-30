@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import styles from './Card.module.css';
 import ColoredMoney from '../../atoms/ColoredMoney/ColoredMoney';
-import CurrencySymbol from '../../atoms/CurrencySymbol/CurrencySymbol';
+import MoneyFormatter from '../../atoms/MoneyFormatter/MoneyFormatter';
 
 const getCurrencySymbol = currencyType => {
   switch (currencyType) {
@@ -40,21 +40,22 @@ const Card = ({
           Full size
         </button>
       </div>
-      <strong className={styles.money}>
-        {`${money} ${getCurrencySymbol(currencyType)}`}
-      </strong>
+      <MoneyFormatter money={money} currencyType={currencyType}>
+        {formattedMoney => (
+          <strong className={styles.money}>{formattedMoney}</strong>
+        )}
+      </MoneyFormatter>
       <span className={styles.text}>{`${percent}% годовых`}</span>
       <span className={styles.text}>{`Создан ${createdAt}`}</span>
       <span className={styles.text}>
         {`Последняя операция ${lastOperation} `}(
-        <CurrencySymbol currencyType={currencyType}>
-          {currencySymbol => (
-            <ColoredMoney
-              money={lastOperationDiff}
-              currencySymbol={currencySymbol}
-            />
-          )}
-        </CurrencySymbol>
+        <MoneyFormatter
+          money={lastOperationDiff}
+          currencyType={currencyType}
+          isDiff
+        >
+          {formattedMoney => <ColoredMoney>{formattedMoney}</ColoredMoney>}
+        </MoneyFormatter>
         )
       </span>
     </div>

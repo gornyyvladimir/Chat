@@ -12,7 +12,7 @@ const BankAccount = () => {
       <div className={styles.cardWrapper}>
         <Card
           accountNumber="57890456"
-          money="69 650"
+          money={69500}
           percent="8"
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"
@@ -20,7 +20,7 @@ const BankAccount = () => {
         />
         <Card
           accountNumber="57890457"
-          money="3 500"
+          money={3500}
           percent="2"
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"
@@ -30,7 +30,7 @@ const BankAccount = () => {
         />
         <Card
           accountNumber="57890457"
-          money="3 500"
+          money={2700}
           percent="2"
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"
@@ -39,7 +39,7 @@ const BankAccount = () => {
         />
         <Card
           accountNumber="57890457"
-          money="3 500"
+          money={42}
           percent="2"
           createdAt="23.01.2017 | 13:55"
           lastOperation="08.03.2017 | 19:21"

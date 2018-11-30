@@ -3,19 +3,7 @@ import classnames from 'classnames';
 import styles from './Card.module.css';
 import ColoredMoney from '../../atoms/ColoredMoney/ColoredMoney';
 import MoneyFormatter from '../../atoms/MoneyFormatter/MoneyFormatter';
-
-const getCurrencySymbol = currencyType => {
-  switch (currencyType) {
-    case 'RUB':
-      return '₽';
-    case 'USD':
-      return '$';
-    case 'EUR':
-      return '€';
-    default:
-      return '';
-  }
-};
+import Operation from '../../molecules/Operation/Operation';
 
 const Card = ({
   className,
@@ -30,6 +18,7 @@ const Card = ({
   const classes = classnames(styles.wrapper, className);
 
   return (
+    <>
     <div className={classes}>
       <div className={styles.headerWrapper}>
         <h3 className={styles.accountNumber}>{`Счет № ${accountNumber} `}</h3>
@@ -59,6 +48,10 @@ const Card = ({
         )
       </span>
     </div>
+    <Operation date="08.03.2017 | 19:21" operation="Пополнение с карты ****0465" operationDiff={3500} currencyType="RUB" />
+    <Operation date="08.03.2017 | 19:21" operation="Пополнение с карты ****0465" operationDiff={3500} currencyType="RUB" />
+    <Operation date="08.03.2017 | 19:21" operation="Пополнение с карты ****0465" operationDiff={3500} currencyType="RUB" />
+    </>
   );
 };
 

@@ -8,10 +8,12 @@ import * as serviceWorker from './serviceWorker';
 import App from './App';
 import messagesReducer from './store/messages/reducer';
 import usersReducer from './store/users/reducer';
+import operationsReducer from './store/operations/reducer';
 
 const rootReducer = combineReducers({
   messages: messagesReducer,
   users: usersReducer,
+  operations: operationsReducer,
 });
 
 const store = createStore(

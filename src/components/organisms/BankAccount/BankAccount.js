@@ -37,7 +37,7 @@ const BankAccount = () => {
           lastOperationDiff={-8000}
           currencyType="USD"
         />
-        <Card
+        {/* <Card
           accountNumber="57890457"
           money={42}
           percent="2"
@@ -46,7 +46,7 @@ const BankAccount = () => {
           lastOperationDiff={40000}
           currencyType="EUR"
           className={styles.greyCard}
-        />
+        /> */}
       </div>
     </div>
   );

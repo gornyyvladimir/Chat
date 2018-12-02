@@ -22,7 +22,7 @@
 
 .button {
   font-size: 0;
-  background: url("./maximize.svg") no-repeat;
+  background: url("./maximize.svg") center center no-repeat;
   border: none;
   padding: 0;
   width: 18px;
@@ -31,7 +31,7 @@
 }
 
 .opened {
-  background: url("./close.svg") center center no-repeat;
+  background-image: url("./close.svg");
 }
 
 .money {

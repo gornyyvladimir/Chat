@@ -60,6 +60,7 @@ class BankAccount extends Component {
                 createdAt={bankAccount.createdAt}
                 lastOperation={bankAccount.lastOperation}
                 lastOperationDiff={bankAccount.lastOperationDiff}
+                currencyType={bankAccount.currencyType}
                 isOpened={isOpened}
                 onClick={
                   isOpened ? this.handleMinimizeClick : this.handleMaximizeClick

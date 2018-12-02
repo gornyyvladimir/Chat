@@ -20,7 +20,7 @@
   font-weight: normal;
 }
 
-.maximizeButton {
+.button {
   font-size: 0;
   background: url("./maximize.svg") no-repeat;
   border: none;
@@ -28,6 +28,10 @@
   width: 18px;
   height: 18px;
   flex-shrink: 0;
+}
+
+.opened {
+  background: url("./close.svg") center center no-repeat;
 }
 
 .money {

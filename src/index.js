@@ -9,11 +9,13 @@ import App from './App';
 import messagesReducer from './store/messages/reducer';
 import usersReducer from './store/users/reducer';
 import operationsReducer from './store/operations/reducer';
+import bankAccountsReducer from './store/bankAccounts/reducer';
 
 const rootReducer = combineReducers({
   messages: messagesReducer,
   users: usersReducer,
   operations: operationsReducer,
+  bankAccounts: bankAccountsReducer,
 });
 
 const store = createStore(

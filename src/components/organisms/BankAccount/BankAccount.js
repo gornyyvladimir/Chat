@@ -1,55 +1,92 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styles from './BankAccount.module.css';
 import Toggle from '../../atoms/Toggle/Toggle';
 import Card from '../../molecules/Card/Card';
+import Operation from '../../molecules/Operation/Operation';
+import {
+  getOperations,
+  resetOperations,
+} from '../../../store/operations/actions';
+import { getBanAccounts } from '../../../store/bankAccounts/actions';
 
-const BankAccount = () => {
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.toggleWrapper}>
-        <Toggle />
+class BankAccount extends Component {
+  state = {
+    maximizedAccount: null,
+  };
+
+  componentDidMount() {
+    this.props.onGetBankAccounts();
+  }
+
+  handleMaximizeClick = accountNumber => {
+    this.props.onGetOperations(accountNumber);
+    this.setState({ maximizedAccount: accountNumber });
+  };
+
+  handleMinimizeClick = () => {
+    this.props.onResetOperations();
+    this.setState({ maximizedAccount: null });
+  };
+
+  render() {
+    const operations =
+      !!this.props.operations.length &&
+      this.props.operations.map(operation => (
+        <Operation
+          key={operation.id}
+          date={operation.createdAt}
+          operation={operation.operation}
+          operationDiff={operation.operationDiff}
+          currencyType={operation.currencyType}
+        />
+      ));
+
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.toggleWrapper}>
+          <Toggle />
+        </div>
+        <div className={styles.cardWrapper}>
+          {this.props.bankAccounts.map(bankAccount => {
+            const isOpened = this.state.maximizedAccount === bankAccount.id;
+
+            return (
+              <Card
+                key={bankAccount.id}
+                accountNumber={bankAccount.id}
+                money={bankAccount.money}
+                percent={bankAccount.percent}
+                createdAt={bankAccount.createdAt}
+                lastOperation={bankAccount.lastOperation}
+                lastOperationDiff={bankAccount.lastOperationDiff}
+                isOpened={isOpened}
+                onClick={
+                  isOpened ? this.handleMinimizeClick : this.handleMaximizeClick
+                }
+              >
+                {isOpened && operations}
+              </Card>
+            );
+          })}
+        </div>
       </div>
-      <div className={styles.cardWrapper}>
-        <Card
-          accountNumber="57890456"
-          money={69500}
-          percent="8"
-          createdAt="23.01.2017 | 13:55"
-          lastOperation="08.03.2017 | 19:21"
-          lastOperationDiff={3500}
-        />
-        <Card
-          accountNumber="57890457"
-          money={3500}
-          percent="2"
-          createdAt="23.01.2017 | 13:55"
-          lastOperation="08.03.2017 | 19:21"
-          lastOperationDiff={-69}
-          currencyType="USD"
-          className={styles.greyCard}
-        />
-        <Card
-          accountNumber="57890457"
-          money={2700}
-          percent="2"
-          createdAt="23.01.2017 | 13:55"
-          lastOperation="08.03.2017 | 19:21"
-          lastOperationDiff={-8000}
-          currencyType="USD"
-        />
-        {/* <Card
-          accountNumber="57890457"
-          money={42}
-          percent="2"
-          createdAt="23.01.2017 | 13:55"
-          lastOperation="08.03.2017 | 19:21"
-          lastOperationDiff={40000}
-          currencyType="EUR"
-          className={styles.greyCard}
-        /> */}
-      </div>
-    </div>
-  );
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  operations: state.operations.operations,
+  bankAccounts: state.bankAccounts.bankAccounts,
+});
+
+const mapDispatchToProps = {
+  onGetBankAccounts: userId => getBanAccounts(userId),
+  onGetOperations: bankAccount => getOperations(bankAccount),
+  onResetOperations: () => resetOperations(),
 };
 
-export default BankAccount;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(BankAccount);

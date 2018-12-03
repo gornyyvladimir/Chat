@@ -30,17 +30,23 @@ class BankAccount extends Component {
   };
 
   render() {
-    const operations =
-      !!this.props.operations.length &&
-      this.props.operations.map(operation => (
-        <Operation
-          key={operation.id}
-          date={operation.createdAt}
-          operation={operation.operation}
-          operationDiff={operation.operationDiff}
-          currencyType={operation.currencyType}
-        />
-      ));
+    const operations = !!this.props.operations.length && (
+      <>
+        <h3 className={styles.operationsTitle}>История операций</h3>
+        <ul className={styles.list}>
+          {this.props.operations.map(operation => (
+            <li key={operation.id} className={styles.item}>
+              <Operation
+                date={operation.createdAt}
+                operation={operation.operation}
+                operationDiff={operation.operationDiff}
+                currencyType={operation.currencyType}
+              />
+            </li>
+          ))}
+        </ul>
+      </>
+    );
 
     return (
       <div className={styles.wrapper}>
@@ -48,7 +54,7 @@ class BankAccount extends Component {
           <Toggle />
         </div>
         <div className={styles.cardWrapper}>
-          {this.props.bankAccounts.map(bankAccount => {
+          {this.props.bankAccounts.map((bankAccount, index) => {
             const isOpened = this.state.maximizedAccount === bankAccount.id;
 
             return (
@@ -62,6 +68,7 @@ class BankAccount extends Component {
                 lastOperationDiff={bankAccount.lastOperationDiff}
                 currencyType={bankAccount.currencyType}
                 isOpened={isOpened}
+                className={index%2 != 0 ? styles.greyCard : null}
                 onClick={
                   isOpened ? this.handleMinimizeClick : this.handleMaximizeClick
                 }

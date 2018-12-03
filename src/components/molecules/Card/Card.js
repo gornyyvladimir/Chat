@@ -22,38 +22,36 @@ const Card = ({
     [styles.opened]: isOpened,
   });
   return (
-    <div>
-      <div className={classes}>
-        <div className={styles.headerWrapper}>
-          <h3 className={styles.accountNumber}>{`Счет № ${accountNumber} `}</h3>
-          <button
-            className={buttonClasses}
-            onClick={() => onClick(accountNumber)}
-          >
-            Maximize toggle
-          </button>
-        </div>
-        <MoneyFormatter money={money} currencyType={currencyType}>
-          {formattedMoney => (
-            <strong className={styles.money}>{formattedMoney}</strong>
-          )}
-        </MoneyFormatter>
-        <span className={styles.text}>{`${percent}% годовых`}</span>
-        <span className={styles.text}>{`Создан ${createdAt}`}</span>
-        {!isOpened && (
-          <span className={styles.text}>
-            {`Последняя операция ${lastOperation} `}(
-            <MoneyFormatter
-              money={lastOperationDiff}
-              currencyType={currencyType}
-              isDiff
-            >
-              {formattedMoney => <ColoredMoney>{formattedMoney}</ColoredMoney>}
-            </MoneyFormatter>
-            )
-          </span>
-        )}
+    <div className={classes}>
+      <div className={styles.headerWrapper}>
+        <h2 className={styles.accountNumber}>{`Счет № ${accountNumber} `}</h2>
+        <button
+          className={buttonClasses}
+          onClick={() => onClick(accountNumber)}
+        >
+          Maximize toggle
+        </button>
       </div>
+      <MoneyFormatter money={money} currencyType={currencyType}>
+        {formattedMoney => (
+          <strong className={styles.money}>{formattedMoney}</strong>
+        )}
+      </MoneyFormatter>
+      <span className={styles.text}>{`${percent}% годовых`}</span>
+      <span className={styles.text}>{`Создан ${createdAt}`}</span>
+      {!isOpened && (
+        <span className={styles.text}>
+          {`Последняя операция ${lastOperation} `}(
+          <MoneyFormatter
+            money={lastOperationDiff}
+            currencyType={currencyType}
+            isDiff
+          >
+            {formattedMoney => <ColoredMoney>{formattedMoney}</ColoredMoney>}
+          </MoneyFormatter>
+          )
+        </span>
+      )}
       {children}
     </div>
   );

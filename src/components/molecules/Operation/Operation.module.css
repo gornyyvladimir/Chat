@@ -1,7 +1,6 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  padding: 14px 40px;
 }
 .date {
   color: #999999;

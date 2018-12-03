@@ -26,6 +26,15 @@ const bankAccounts = [
     lastOperationDiff: -8000,
     currencyType: 'EUR',
   },
+  {
+    id: '57890459',
+    money: 3700,
+    percent: '1,5',
+    createdAt: '23.01.2017 | 13:55',
+    lastOperation: '09.03.2017 | 19:21',
+    lastOperationDiff: 4,
+    currencyType: 'EUR',
+  },
 ];
 
 export default bankAccounts;

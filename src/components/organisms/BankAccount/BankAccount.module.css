@@ -23,3 +23,26 @@
   overflow-y: auto;
   padding-right: 10px;
 }
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0 -40px;
+}
+
+.item {
+  padding: 14px 40px;
+}
+
+.item:nth-child(even) {
+  background-color:#f9f9f9;
+}
+
+.operationsTitle {
+  font-size: 16px;
+  line-height: 20px;
+  color: #999999;
+  font-weight: normal;
+  margin: 0;
+  margin-top: 58px;
+}

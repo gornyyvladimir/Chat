@@ -29,6 +29,13 @@ class BankAccount extends Component {
     this.setState({ maximizedAccount: null });
   };
 
+  handleSendOperationClick = (operation) => {
+    this.props.currentUser.sendMessage({
+      text: JSON.stringify({type: 'operation', message: operation}),
+      roomId: process.env.REACT_APP_ROOM_ID,
+    });
+  }
+
   render() {
     const operations = !!this.props.operations.length && (
       <>
@@ -42,7 +49,7 @@ class BankAccount extends Component {
                 operationDiff={operation.operationDiff}
                 currencyType={operation.currencyType}
               />
-              <button className={styles.button} onClick={() => alert("Send message")}>Message button</button>
+              <button className={styles.button} onClick={() => this.handleSendOperationClick(operation)}>Message button</button>
             </li>
           ))}
         </ul>
@@ -87,6 +94,7 @@ class BankAccount extends Component {
 const mapStateToProps = state => ({
   operations: state.operations.operations,
   bankAccounts: state.bankAccounts.bankAccounts,
+  currentUser: state.users.currentUser,
 });
 
 const mapDispatchToProps = {

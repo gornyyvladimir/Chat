@@ -4,7 +4,7 @@ import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
 import MessageForm from '../../molecules/MessageForm/MessageForm';
 import MessageList from '../../molecules/MessageList/MessageList';
 import styles from './Chat.module.css';
-import { sendMessage, addMessage } from '../../../store/messages/actions';
+import { addMessage } from '../../../store/messages/actions';
 import { setCurrentUser } from '../../../store/users/actions';
 
 class Chat extends Component {
@@ -32,7 +32,7 @@ class Chat extends Component {
 
   sendMessage = text => {
     this.props.currentUser.sendMessage({
-      text,
+      text: JSON.stringify({type: 'text', message: text}),
       roomId: process.env.REACT_APP_ROOM_ID,
     });
   };
@@ -57,7 +57,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onSendMessage: message => sendMessage(message),
   onAddMessage: message => addMessage(message),
   onSetCurrentUser: user => setCurrentUser(user),
 };

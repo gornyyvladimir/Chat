@@ -20,7 +20,6 @@ class MessageList extends Component {
 
   render() {
     const { messages, currentUser } = this.props;
-    console.log('render');
     return (
       <div className={styles.wrapper}>
         <ul className={styles.messageList}>

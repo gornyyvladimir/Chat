@@ -42,6 +42,7 @@ class BankAccount extends Component {
                 operationDiff={operation.operationDiff}
                 currencyType={operation.currencyType}
               />
+              <button className={styles.button} onClick={() => alert("Send message")}>Message button</button>
             </li>
           ))}
         </ul>
@@ -68,7 +69,7 @@ class BankAccount extends Component {
                 lastOperationDiff={bankAccount.lastOperationDiff}
                 currencyType={bankAccount.currencyType}
                 isOpened={isOpened}
-                className={index%2 != 0 ? styles.greyCard : null}
+                className={index%2 !== 0 ? styles.greyCard : null}
                 onClick={
                   isOpened ? this.handleMinimizeClick : this.handleMaximizeClick
                 }

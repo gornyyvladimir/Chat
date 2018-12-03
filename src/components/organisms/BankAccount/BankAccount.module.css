@@ -17,6 +17,8 @@
 
 .greyCard {
   background-color:#f9f9f9;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .cardWrapper {
@@ -32,10 +34,16 @@
 
 .item {
   padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#ffffff;
 }
 
 .item:nth-child(even) {
   background-color:#f9f9f9;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .operationsTitle {
@@ -43,6 +51,16 @@
   line-height: 20px;
   color: #999999;
   font-weight: normal;
-  margin: 0;
   margin-top: 58px;
+  margin-bottom: 14px;
+}
+
+.button {
+  font-size: 0;
+  background: url("./mingle-share.svg") center center no-repeat;
+  border: none;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }

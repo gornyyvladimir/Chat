@@ -50,7 +50,7 @@ const operations = [
   },
   {
     id: '7',
-    currencyType: 'RUB',
+    currencyType: 'EUR',
     createdAt: '08.03.2017 | 19:21',
     operation: 'Пополнение с карты ****0465',
     operationDiff: 352,

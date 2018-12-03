@@ -10,7 +10,6 @@
 
 .currentUserMessage {
   flex-direction: row-reverse;
-  /* text-align: right; */
 }
 
 .currentUserMessage .avatarWrapper {
@@ -18,9 +17,15 @@
   margin-left: 1em;
 }
 
+.paragraph {
+  margin: 0;
+}
+
+.alignRight {
+  text-align: right;
+}
 
 .message {
-  margin: 0;
   padding: 1em;
   background-color: #ffffff;
   border-radius: 5px;
